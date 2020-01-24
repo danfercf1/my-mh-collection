@@ -22,7 +22,7 @@ paths:
           content: {}
     post:
       tags:
-      - albums
+      - Albums
       description: Create a new album
       requestBody:
         description: an album
@@ -38,7 +38,7 @@ paths:
   /albums/{id}:
     get:
       tags:
-      - albums
+      - Albums
       parameters:
       - name: id
         in: path
@@ -52,6 +52,82 @@ paths:
           content: {}
         404:
           description: Album not found
+          content: {}
+    delete:
+      tags:
+      - Albums
+      parameters:
+      - name: id
+        in: path
+        description: The id of the album to delete
+        required: true
+        schema:
+          type: string
+      responses:
+        204:
+          description: Album deleted
+          content: {}
+        404:
+          description: Album not found
+          content: {}
+  /artists:
+    get:
+      tags:
+        - Artists
+      description: Fetch all artists
+      responses:
+        200:
+          description: Returns all artists
+          content: {}
+    post:
+      tags:
+        - Artists
+      description: Create a new artist
+      requestBody:
+        description: an album
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArtistBody'
+        required: true
+      responses:
+        200:
+          description: Returns all artists
+          content: {}
+  /artists/{id}:
+    get:
+      tags:
+        - Artists
+      parameters:
+        - name: id
+          in: path
+          description: The id of the artist to retrieve
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Return the artist with the specified id
+          content: {}
+        404:
+          description: Artist not found
+          content: {}
+    delete:
+      tags:
+        - Artists
+      parameters:
+        - name: id
+          in: path
+          description: The id of the artist to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: Artist deleted
+          content: {}
+        404:
+          description: Artist not found
           content: {}
   /spec:
     get:
@@ -80,3 +156,18 @@ components:
           type: string
         year:
           type: string
+    ArtistBody:
+      required:
+        - firstName
+        - lastName
+        - birthDate
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        birthDate:
+          type: string
+          example: "1982-11-17"
+

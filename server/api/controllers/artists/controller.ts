@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
-import { AlbumModel } from '../../models/album';
+import { ArtistModel } from '../../models/artist';
 
-export class AlbumController {
+export class ArtistController {
   all(req: Request, res: Response, next: NextFunction): void {
-    AlbumModel.find()
+    ArtistModel.find()
       .then(r => res.json(r))
       .catch(err => {
         err.status = 400;
@@ -12,11 +12,11 @@ export class AlbumController {
   }
 
   create(req: Request, res: Response, next: NextFunction): void {
-    AlbumModel.create(req.body)
+    ArtistModel.create(req.body)
       .then(r => {
         res
           .status(201)
-          .location(`/api/v1/albums/${r.id}`)
+          .location(`/api/v1/artists/${r.id}`)
           .json(r);
       })
       .catch(err => {
@@ -27,7 +27,7 @@ export class AlbumController {
 
   byId(req: Request, res: Response, next: NextFunction): void {
     const id = req.params['id'];
-    AlbumModel.findById(id)
+    ArtistModel.findById(id)
       .then(r => {
         if (r) res.json(r);
         else res.status(404).end();
@@ -40,7 +40,7 @@ export class AlbumController {
 
   deleteById(req: Request, res: Response, next: NextFunction): void {
     const id = req.params['id'];
-    AlbumModel.findByIdAndDelete(id)
+    ArtistModel.findByIdAndDelete(id)
       .then(r => {
         if (r) {
           res.status(204).end();
@@ -54,4 +54,4 @@ export class AlbumController {
       });
   }
 }
-export default new AlbumController();
+export default new ArtistController();

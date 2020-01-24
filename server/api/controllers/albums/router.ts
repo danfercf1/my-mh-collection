@@ -1,7 +1,8 @@
 import express from 'express';
-import controller from './controller';
+import AlbumController from './controller';
 export default express
   .Router()
-  .post('/', controller.create)
-  .get('/', controller.all)
-  .get('/:id', controller.byId);
+  .post('/', AlbumController.create)
+  .get('/', AlbumController.all)
+  .get('/:id', AlbumController.byId)
+  .delete('/:id', AlbumController.deleteById);
