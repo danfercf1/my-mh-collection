@@ -1,0 +1,74 @@
+openapi: 3.0.1
+info:
+  title: my-mh-collection
+  description: My music home collection
+  version: 1.0.0
+servers:
+- url: /api/v1
+tags:
+- name: Albums
+  description: Simple album endpoints
+- name: Specification
+  description: The swagger API specification
+paths:
+  /albums:
+    get:
+      tags:
+      - Albums
+      description: Fetch all albums
+      responses:
+        200:
+          description: Returns all albums
+          content: {}
+    post:
+      tags:
+      - albums
+      description: Create a new album
+      requestBody:
+        description: an album
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlbumBody'
+        required: true
+      responses:
+        200:
+          description: Returns all albums
+          content: {}
+  /albums/{id}:
+    get:
+      tags:
+      - albums
+      parameters:
+      - name: id
+        in: path
+        description: The id of the album to retrieve
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Return the album with the specified id
+          content: {}
+        404:
+          description: Album not found
+          content: {}
+  /spec:
+    get:
+      tags:
+      - Specification
+      responses:
+        200:
+          description: Return the API specification
+          content: {}
+components:
+  schemas:
+    AlbumBody:
+      title: album
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          album: no_stress
