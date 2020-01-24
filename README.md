@@ -40,7 +40,10 @@ Run docker-compose:
 docker-compose up -d
 ```
 
+## Create the DB:
 
+Enter to [Mongo express](http://localhost:8081) and create the database called `my-mh-collection`.
+ 
 ## Run It
 #### Run in *development* mode:
 Runs the application is development mode. Should not be used in production
@@ -103,3 +106,7 @@ npm run test:debug
 #### Debug with VSCode
 
 Add these [contents](https://github.com/cdimascio/generator-express-no-stress/blob/next/assets/.vscode/launch.json) to your `.vscode/launch.json` file
+
+### Check the documentation
+
+[api-explorer](http://localhost:3000/api-explorer/)

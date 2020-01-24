@@ -45,7 +45,7 @@ paths:
         description: The id of the album to retrieve
         required: true
         schema:
-          type: integer
+          type: string
       responses:
         200:
           description: Return the album with the specified id
@@ -64,11 +64,19 @@ paths:
 components:
   schemas:
     AlbumBody:
-      title: album
       required:
-      - name
+      - title
+      - releaseDate
+      - rating
+      - year
       type: object
       properties:
-        name:
+        title:
           type: string
-          album: no_stress
+        releaseDate:
+          type: string
+          example: "2020-01-20"
+        rating:
+          type: string
+        year:
+          type: string
