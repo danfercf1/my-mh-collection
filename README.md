@@ -26,6 +26,20 @@ Install all package dependencies (one time operation)
 ```shell
 npm install
 ```
+## Run docker containers for mongo server
+
+PD: Install docker and docker-compose
+
+[docker](https://www.digitalocean.com/community/tutorials/como-instalar-y-usar-docker-en-ubuntu-18-04-1-es)
+
+[docker-compose](https://www.digitalocean.com/community/tutorials/como-instalar-docker-compose-en-ubuntu-18-04-es)
+
+Run docker-compose:
+
+```shell
+docker-compose up -d
+```
+
 
 ## Run It
 #### Run in *development* mode:
