@@ -156,6 +156,11 @@ components:
           type: string
         year:
           type: string
+        artists:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArtistBody'
+
     ArtistBody:
       required:
         - firstName

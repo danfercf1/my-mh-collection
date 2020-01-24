@@ -26,6 +26,24 @@ Install all package dependencies (one time operation)
 ```shell
 npm install
 ```
+
+## Create .env file in project root:
+
+```dotenv
+APP_ID=my-mh-collection
+PORT=3000
+LOG_LEVEL=debug
+REQUEST_LIMIT=100kb
+SESSION_SECRET=mySecret
+MONGO_USERNAME=root
+MONGO_PASSWORD=mongodb
+MONGO_HOSTNAME=127.0.0.1
+MONGO_PORT=27017
+MONGO_DB=my-mh-collection
+
+OPENAPI_SPEC=/api/v1/spec
+```
+
 ## Run docker containers for mongo server
 
 PD: Install docker and docker-compose
